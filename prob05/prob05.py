@@ -1,21 +1,24 @@
 # -*- coding: utf-8 -*-
+import sys
 
 
-def get_answer(first_name, last_name):
-    return first_name + " " + last_name
+def get_answer(albas):
+
+    return ""
 
 
+# Time complexity: TODO
+# Space complexity: TODO
 def main():
-    first_name, last_name = input().split()
-    px, py = [int(word) for word in input().split()]
+    total = int(input())
+    # total = int(sys.stdin.readline().strip())
+    albas = []
+    for i in range(total):
+        # line = sys.stdin.readline().strip()
+        M, D, I = [int(word) for word in input().split()]
+        albas.append((M, D, I))
 
-    case_count = int(input())
-
-    for _ in range(case_count):
-        ranks = [int(word) for word in input().split()]
-        print(ranks)
-
-    answer = get_answer(first_name, last_name)
+    answer = get_answer(albas)
 
     print(answer)
 
