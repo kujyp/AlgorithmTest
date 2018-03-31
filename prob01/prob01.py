@@ -36,6 +36,5 @@ def main():
         print(answer)
 
 
-
 if __name__ == "__main__":
     main()
