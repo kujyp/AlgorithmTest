@@ -2,7 +2,7 @@ import io
 import unittest
 from unittest.mock import patch
 
-from prob01.prob01 import main
+from prob03.prob03 import main
 
 
 class End2EndTestCase(unittest.TestCase):
@@ -12,12 +12,13 @@ class End2EndTestCase(unittest.TestCase):
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_end2end_1(self, captured_output):
         raw_input = """\
-jae young
-3 5
-3
-5 4 3 2 1
-2 3 1
-1 2 3 4
+6
+1 3
+3 4
+6 5
+11 15
+12 17
+12 15
 """
         user_input = raw_input.split("\n")
 
@@ -27,10 +28,7 @@ jae young
             output = output.rstrip()
 
         self.assertEqual("""\
-[5, 4, 3, 2, 1]
-[2, 3, 1]
-[1, 2, 3, 4]
-jae young""", output)
+3""", output)
 
 #     @patch('sys.stdout', new_callable=io.StringIO)
 #     def test_end2end_2(self, captured_output):
