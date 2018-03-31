@@ -12,12 +12,9 @@ class End2EndTestCase(unittest.TestCase):
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_end2end_1(self, captured_output):
         raw_input = """\
-jae young
-3 5
-3
-5 4 3 2 1
-2 3 1
-1 2 3 4
+2
+AAAAAADDC
+WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW
 """
         user_input = raw_input.split("\n")
 
@@ -27,29 +24,24 @@ jae young
             output = output.rstrip()
 
         self.assertEqual("""\
-[5, 4, 3, 2, 1]
-[2, 3, 1]
-[1, 2, 3, 4]
-jae young""", output)
+6A2D1C
+12W1B12W3B24W1B14W""", output)
 
-#     @patch('sys.stdout', new_callable=io.StringIO)
-#     def test_end2end_2(self, captured_output):
-#         raw_input = """\
-# 1
-# 4
-# 3 4 2 1
-# 1
-# 1 4
-# """
-#         user_input = raw_input.split("\n")
-#
-#         with patch('builtins.input', side_effect=user_input):
-#             main()
-#             output = captured_output.getvalue()
-#             output = output.rstrip()
-#
-#         self.assertEqual("""\
-# IMPOSSIBLE""", output)
+    @patch('sys.stdout', new_callable=io.StringIO)
+    def test_end2end_2(self, captured_output):
+        raw_input = """\
+1
+WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW
+"""
+        user_input = raw_input.split("\n")
+
+        with patch('builtins.input', side_effect=user_input):
+            main()
+            output = captured_output.getvalue()
+            output = output.rstrip()
+
+        self.assertEqual("""\
+""", output)
 #
 #     @patch('sys.stdout', new_callable=io.StringIO)
 #     def test_end2end_3(self, captured_output):
